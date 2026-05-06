@@ -106,7 +106,7 @@ export default function Checkout() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/orders", {
+      const res = await fetch("https://shmb-honey-backend.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -143,7 +143,7 @@ export default function Checkout() {
           email: billing.email,
         },
         handler: async function (response) {
-          await fetch("http://localhost:5000/api/payment/verify", {
+          await fetch("https://shmb-honey-backend.onrender.com", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
