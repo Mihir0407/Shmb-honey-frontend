@@ -106,7 +106,7 @@ export default function Checkout() {
     }
 
     try {
-      const res = await fetch("https://shmb-honey-backend.onrender.com", {
+      const res = await fetch("https://shmb-honey-backend.onrender.com/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -143,7 +143,7 @@ export default function Checkout() {
           email: billing.email,
         },
         handler: async function (response) {
-          await fetch("https://shmb-honey-backend.onrender.com", {
+          await fetch("https://shmb-honey-backend.onrender.com/api/payment/verify", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
