@@ -1,0 +1,312 @@
+:root {
+  --hbrown: #5a2f12;
+  --accent: #f2c300;
+  --container-max: 1400px;
+}
+
+/* small container helper (re-usable) */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 28px;
+  box-sizing: border-box;
+}
+
+/* SECTION */
+.home-category {
+  background: #ffffff;
+  padding: 24px 0 56px;
+}
+
+/* inner grid: heading left, items right */
+.category-inner {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 36px;
+  align-items: center;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+/* heading block */
+.category-heading {
+  padding-left: 8px;
+}
+
+.category-eyebrow {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 28px;
+  margin: 0 0 6px;
+}
+
+.category-title {
+  color: var(--hbrown);
+  font-family: Georgia, serif;
+  font-size: 64px;
+  line-height: 1;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* list of cards */
+.category-list {
+  display: flex;
+  gap: 42px;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* wrapper aligns name under card */
+.category-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px; /* width of card + label area */
+}
+
+/* clickable card */
+.category-card {
+  display: inline-block;
+  position: relative;
+  width: 220px;
+  height: 200px;
+  border-radius: 18px;
+  text-decoration: none;
+  overflow: visible;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* faux-hex background - yellow rounded hexagon look */
+.hex-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 200px;
+  background: var(--accent);
+  border-radius: 28px;
+  filter: drop-shadow(0 10px 24px rgba(12,25,30,0.08));
+  z-index: 0;
+  /* to make the hex-like visual a bit closer: create cut corners using pseudo elements */
+  clip-path: polygon(
+    25% 0%,
+    75% 0%,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0% 50%
+  );
+}
+
+/* product image centered above the hex */
+.category-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;   /* increased from 92px → 120px */
+  height: auto;
+  z-index: 2;
+  transition: transform 300ms ease, filter 300ms ease;
+  will-change: transform;
+}
+
+/* Hover enlarged smoothly */
+.category-card:hover .category-img,
+.category-card:focus .category-img {
+  transform: translate(-50%, -50%) translateY(-10px) scale(1.12);
+}
+
+
+/* label below card */
+.category-name {
+  margin-top: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  font-size: 18px;
+}
+
+/* hover/focus effect */
+.category-card:hover .category-img,
+.category-card:focus .category-img {
+  transform: translate(-50%, -50%) translateY(-8px) scale(1.06);
+}
+.category-card:hover .hex-bg,
+.category-card:focus .hex-bg {
+  filter: drop-shadow(0 18px 32px rgba(12,25,30,0.12));
+  transform: translate(-50%, -52%) scale(1.02);
+}
+
+/* keyboard focus ring */
+.category-card:focus {
+  box-shadow: 0 0 0 4px rgba(242,195,0,0.16);
+  border-radius: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .category-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .category-title {
+    font-size: 44px;
+  }
+
+  .category-list {
+    gap: 28px;
+  }
+
+  .category-card-wrapper {
+    width: 160px;
+  }
+
+  .category-card {
+    width: 160px;
+    height: 150px;
+  }
+
+  .hex-bg {
+    width: 160px;
+    height: 150px;
+  }
+
+  .category-img {
+    width: 76px;
+  }
+
+  .category-name {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .category-list {
+    gap: 18px;
+    padding: 0 10px;
+  }
+  .category-name { font-size: 14px; }
+}
+/* =========================
+   FEATURED CATEGORY IMAGES
+   (Tvashta + Shree Gayatri)
+========================= */
+
+/* enlarge ONLY cat1 & cat2 images */
+.category-card-wrapper[data-cat="cat1"] .category-img,
+.category-card-wrapper[data-cat="cat2"] .category-img {
+  width: 145px; /* original was 120px */
+}
+
+/* keep hover animation proportional */
+.category-card-wrapper[data-cat="cat1"] .category-card:hover .category-img,
+.category-card-wrapper[data-cat="cat2"] .category-card:hover .category-img {
+  transform: translate(-50%, -50%) translateY(-12px) scale(1.12);
+}
+/* =========================
+   MOBILE UX REFINEMENT
+========================= */
+
+@media (max-width: 768px) {
+  .home-category {
+    padding: 20px 0 40px;
+  }
+
+  .category-inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .category-heading {
+    padding-left: 0;
+  }
+
+  .category-eyebrow {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .category-title {
+    font-size: 36px;
+  }
+
+  /* Horizontal scroll list */
+  .category-list {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 16px 8px;
+    gap: 20px;
+  }
+
+  .category-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-card-wrapper {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    width: 150px;
+  }
+
+  .category-card {
+    width: 150px;
+    height: 140px;
+  }
+
+  .hex-bg {
+    width: 150px;
+    height: 140px;
+  }
+
+  .category-img {
+    width: 85px;
+  }
+
+  /* Featured category images still larger */
+  .category-card-wrapper[data-cat="cat1"] .category-img,
+  .category-card-wrapper[data-cat="cat2"] .category-img {
+    width: 105px;
+  }
+
+  .category-name {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 420px) {
+  .category-title {
+    font-size: 32px;
+  }
+
+  .category-card-wrapper {
+    width: 140px;
+  }
+
+  .category-card {
+    width: 140px;
+    height: 130px;
+  }
+
+  .hex-bg {
+    width: 140px;
+    height: 130px;
+  }
+
+  .category-img {
+    width: 78px;
+  }
+}

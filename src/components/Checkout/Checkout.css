@@ -1,0 +1,163 @@
+.checkout-page {
+  padding: 120px 20px 40px;
+  background: #fff;
+}
+
+.checkout-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 30px;
+}
+
+.checkout-box {
+  border: 2px solid #f4b400;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.checkout-box h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.notice {
+  font-size: 14px;
+}
+
+.link {
+  color: #f4b400;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.checkout-left input,
+.checkout-left select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #f4b400;
+}
+
+.checkbox {
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.order-row.total {
+  border-top: 1px solid #f4b400;
+  margin-top: 10px;
+  padding-top: 14px;
+}
+
+.coupon-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.coupon-row input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #f4b400;
+  border-radius: 6px;
+}
+
+.coupon-row button {
+  padding: 10px 16px;
+  background: #f4b400;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.razorpay-badge {
+  height: 45px;
+  width: 113px;
+}
+
+.payment-text {
+  font-size: 13px;
+  color: #555;
+  margin: 12px 0;
+}
+
+.privacy-text {
+  font-size: 12.5px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 14px;
+  background: #f4b400;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: -6px;
+  display: block;
+}
+
+.login-placeholder {
+  margin-top: 12px;
+  padding: 12px;
+  background: #fff7db;
+  border-radius: 8px;
+}
+.order-notes-box h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.order-notes-box h3 span {
+  font-weight: 400;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.order-notes-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1.5px solid #f4b400;
+  resize: vertical;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.order-notes-textarea::placeholder {
+  color: #9ca3af;
+}

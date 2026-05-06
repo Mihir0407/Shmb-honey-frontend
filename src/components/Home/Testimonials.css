@@ -1,0 +1,182 @@
+/* Testimonials.css - tuned to match the first screenshot exactly (left-aligned card content) */
+
+/* Colors */
+:root{
+  --ts-yellow: #f2c300;
+  --ts-brown: #5a2f12;
+  --ts-card-border: #e9eef0;
+  --ts-text: #222;
+  --ts-gap: 20px;
+}
+
+/* Section */
+.ts-section{
+  padding: 48px 16px 36px;
+  background: white;
+  text-align: center;
+}
+
+/* Header */
+.ts-header { margin-bottom: 18px; }
+.ts-kicker{
+  color: var(--ts-yellow);
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+.ts-title{
+  color: var(--ts-brown);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 64px;   /* keeps the big brown title */
+  margin: 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+}
+
+/* small star row under title (centered) */
+.ts-star-decor { margin-top: 12px; display:flex; justify-content:center; }
+
+/* Wrapper (arrows + carousel) */
+.ts-wrapper{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Arrow buttons - subtle, light */
+.ts-arrow{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  color: #d6d6d6;
+  cursor: pointer;
+  transition: color .12s ease, transform .12s ease;
+  display: inline-grid;
+  place-items: center;
+}
+.ts-arrow:hover{ color: #b0b0b0; transform: none; }
+.ts-left { margin-right: 8px; }
+.ts-right { margin-left: 8px; }
+
+/* Carousel container */
+.ts-carousel{
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  padding: 0 6px;
+}
+
+/* Track */
+.ts-track{
+  display: flex;
+  gap: var(--ts-gap);
+  transition: transform 480ms cubic-bezier(.2,.9,.2,1);
+  align-items: stretch;
+}
+
+/* Card - left aligned content, thin border, subtle shadow removed to match reference */
+.ts-card{
+  flex: 0 0 calc((100% / 3) - (var(--ts-gap) * 2 / 3));
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--ts-card-border);
+  padding: 18px 18px 20px 18px;
+  box-sizing: border-box;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Head: name + stars placed at top-left */
+.ts-card-head{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Make name left aligned and smaller */
+.ts-name{
+  font-weight: 700;
+  color: #222;
+  font-size: 14px;
+}
+
+/* Stars inline, slightly below name visually */
+.ts-stars{ display:flex; gap:4px; align-items:center; margin-left: 6px; }
+
+/* star sizes */
+.ts-star{
+  width: 16px;
+  height: 16px;
+  fill: var(--ts-yellow);
+  flex-shrink: 0;
+}
+.ts-star-empty{ fill: transparent; stroke: var(--ts-yellow); stroke-width: 1; opacity:0.95; }
+
+/* Card headline (left aligned, medium size, serif) */
+.ts-card-title{
+  font-family: Georgia, serif;
+  font-size: 22px;           /* smaller than previous version */
+  color: var(--ts-brown);
+  margin: 8px 0 10px 0;
+  text-align: left;
+}
+
+/* thin divider line */
+.ts-divider{
+  height: 1px;
+  background: var(--ts-card-border);
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/* testimonial text - left aligned, line-height expanded for readability */
+.ts-text{
+  color: var(--ts-text);
+  font-size: 15px;
+  line-height: 1.9;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+/* pagination dots */
+.ts-dots{
+  margin-top: 18px;
+  display:flex;
+  justify-content:center;
+  gap: 10px;
+}
+.ts-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+}
+.ts-dot.active{ background: #222; }
+
+/* Responsive: 2 per view */
+@media (max-width: 990px){
+  .ts-card{ flex: 0 0 calc((100% / 2) - (var(--ts-gap) / 1)); }
+  .ts-title{ font-size: 48px; }
+}
+
+/* Responsive: 1 per view (mobile) */
+@media (max-width: 640px){
+  .ts-card{ flex: 0 0 100%; padding: 20px; }
+  .ts-arrow{ display: none; }
+  .ts-title{ font-size: 34px; }
+  .ts-wrapper { padding: 0 8px; }
+}

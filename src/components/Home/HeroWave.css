@@ -1,0 +1,26 @@
+/* HeroWave.css - namespaced to avoid collisions */
+:root{
+  --hw-bg: #ffffff;
+  --hw-svg-height: 160px;
+}
+
+.hw-wrapper{
+  background: var(--hw-bg);
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  padding: 0;
+}
+
+.hw-svg{
+  width: 100%;
+  height: var(--hw-svg-height);
+  display: block;
+}
+
+/* Optional: give the SVG container some vertical spacing so bee doesn't overlap other content */
+.hw-wrapper { padding-top: 50px; padding-bottom: 10px; }
+  
+@media (max-width: 900px){
+  :root { --hw-svg-height: 120px; }
+}

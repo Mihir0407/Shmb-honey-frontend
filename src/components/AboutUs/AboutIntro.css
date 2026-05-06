@@ -1,0 +1,73 @@
+/* AboutIntro.css - matches the Elementor structure and screenshot */
+
+:root {
+  --accent-yellow: #f2c300;
+  --title-brown: #5a2f12;
+  --max-width: 1200px;
+}
+
+/* re-use site container helper */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section base */
+.about-intro-section {
+  background: transparent;
+  position: relative;
+  padding: 52px 0 64px;
+  text-align: center;
+}
+
+/* small "About" label (yellow) */
+.small-label {
+  color: var(--accent-yellow);
+  font-weight: 800;
+  font-size: 26px;
+  margin: 0 0 8px;
+  letter-spacing: 0.4px;
+}
+
+/* big serif title - centered and large (two-line) */
+.big-title {
+  color: var(--title-brown);
+  font-family: "Georgia", serif;
+  font-size: 56px;
+  line-height: 0.98;
+  margin: 8px 0 22px;
+  font-weight: 700;
+}
+
+/* paragraph */
+.about-paragraph {
+  color: #232323;
+  max-width: 920px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.9;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  padding: 0 10px;
+}
+
+/* small tweaks to mimic thin centered layout from screenshot */
+.elementor-widget-container {
+  display: block;
+}
+
+/* responsive adjustments */
+@media (max-width: 992px) {
+  .big-title { font-size: 44px; }
+  .small-label { font-size: 22px; }
+  .about-paragraph { font-size: 16px; line-height: 1.8; }
+  .about-intro-section { padding: 40px 0; }
+}
+
+@media (max-width: 600px) {
+  .big-title { font-size: 28px; }
+  .small-label { font-size: 18px; }
+  .about-paragraph { font-size: 15px; line-height: 1.7; padding: 0 12px; }
+  .about-intro-section { padding: 28px 0; }
+}

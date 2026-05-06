@@ -1,0 +1,467 @@
+/* src/components/ProductDetail/ProductDetail.css */
+
+.product-detail.container {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* LEFT IMAGE */
+.pd-image-wrap {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.pd-image-wrap img {
+  max-height: 520px;
+  object-fit: contain;
+}
+
+/* zoom icon */
+.zoom-icon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* RIGHT INFO */
+.pd-title {
+  font-size: 42px;
+  color: #083344;
+  margin-bottom: 16px;
+}
+
+.pd-desc {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+/* price */
+.pd-price {
+  margin-bottom: 28px;
+}
+
+.pd-price .old {
+  text-decoration: line-through;
+  color: #9ca3af;
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+.pd-price .new {
+  font-size: 22px;
+  font-weight: 800;
+  color: #e11d48;
+}
+
+/* cart row */
+.pd-cart-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.pd-cart-row input {
+  width: 70px;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  font-size: 16px;
+}
+
+.pd-cart-row button {
+  background: #f2c300;
+  border: none;
+  padding: 12px 34px;
+  border-radius: 6px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* divider */
+.product-detail hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 32px 0;
+}
+
+/* benefits */
+.pd-benefits p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #083344;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.pd-image-wrap img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.pd-info {
+  max-width: 520px;
+}
+
+.pd-title {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.pd-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.pd-price .old {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 12px;
+}
+
+.pd-price .new {
+  font-size: 26px;
+  font-weight: 800;
+  color: #e53935;
+}
+
+.pd-cart-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+/* =========================
+   PRODUCT TABS SECTION
+========================= */
+.product-tabs.container {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* Tabs Header */
+.tabs-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid #f2c300;
+  margin-bottom: 24px;
+}
+
+.tab {
+  background: #ffffff;
+  border: 2px solid #f2c300;
+  border-bottom: none;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+  color: #000;
+}
+
+.tab.active {
+  background: #ffffff;
+  position: relative;
+  top: 2px;
+}
+
+/* =========================
+   TAB CONTENT
+========================= */
+.tab-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 16px 0 18px;
+  color: #000;
+}
+
+/* =========================
+   SPEC TABLE (EXACT MATCH)
+========================= */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  border: 1px solid #bdbdbd;
+}
+
+.spec-table tr {
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.spec-table td {
+  padding: 10px 12px;
+  vertical-align: middle;
+  border-right: 1px solid #bdbdbd;
+}
+
+/* Left column */
+.spec-table td:first-child {
+  width: 40%;
+  font-weight: 600;
+  background: #f3f3f3;
+  color: #000;
+}
+
+/* Right column */
+.spec-table td:last-child {
+  width: 60%;
+  color: #000;
+  border-right: none;
+}
+
+/* =========================
+   RESPONSIVE (STACKED)
+========================= */
+@media (max-width: 768px) {
+  .spec-table,
+  .spec-table tbody,
+  .spec-table tr,
+  .spec-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .spec-table tr {
+    margin-bottom: 12px;
+  }
+
+  .spec-table td {
+    border-right: none;
+    border-bottom: 1px solid #bdbdbd;
+  }
+
+  .spec-table td:first-child {
+    background: #f3f3f3;
+  }
+}
+/* =========================
+   REVIEWS SECTION
+========================= */
+.reviews-wrapper {
+  max-width: 720px;
+  font-size: 14px;
+  color: #000;
+}
+
+.reviews-wrapper h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.no-reviews {
+  margin-bottom: 14px;
+}
+
+.review-note {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* =========================
+   FORM FIELDS
+========================= */
+.review-field {
+  margin-bottom: 18px;
+}
+
+.review-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.review-field input,
+.review-field textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #bdbdbd;
+  font-size: 14px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.review-field textarea {
+  resize: vertical;
+}
+
+/* =========================
+   STAR RATING
+========================= */
+.star-rating {
+  font-size: 20px;
+  color: #d63638; /* red stars like screenshot */
+  cursor: pointer;
+}
+
+.star-rating span {
+  margin-right: 4px;
+}
+
+/* =========================
+   CHECKBOX
+========================= */
+.review-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 16px 0 20px;
+}
+
+.review-checkbox input {
+  margin-top: 4px;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+.review-submit {
+  background: #efefef;
+  border: none;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.review-submit:hover {
+  background: #e2e2e2;
+}
+/* =========================
+   RELATED PRODUCTS
+========================= */
+.related-products.container {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.related-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+/* Grid */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* Card */
+.related-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px 20px 28px;
+  box-shadow: 0 0 0 1px #e5e5e5;
+  transition: all 0.35s ease;
+}
+
+/* Middle card highlight (like screenshot) */
+.related-card:nth-child(2) {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  transform: translateY(-10px);
+}
+
+/* Image */
+.related-card img {
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+/* Title */
+.related-card h4 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+/* Price */
+.related-card .price {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 26px;
+}
+
+/* Button */
+.related-card button {
+  background: #ffc400;
+  border: none;
+  padding: 12px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* Hover */
+.related-card:hover {
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .related-card:nth-child(2) {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .related-title {
+    font-size: 32px;
+  }
+}

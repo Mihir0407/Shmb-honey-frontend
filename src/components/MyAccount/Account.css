@@ -1,0 +1,77 @@
+/* src/pages/Account.css */
+
+.account-page.container {
+  max-width: 980px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+}
+
+.account-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 800;
+  color: #111;
+}
+
+.account-card {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  background: #fafafa;
+  border-radius: 22px;
+  padding: 34px;
+  border: 2px solid rgba(242,195,0,0.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #f2c300, #e6b000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #111;
+}
+
+.account-info h2 {
+  font-size: 26px;
+  margin: 0 0 6px;
+}
+
+.account-info .email {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.account-info .desc {
+  font-size: 15px;
+  color: #444;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+.logout-btn {
+  margin-top: 18px;
+  background: none;
+  border: 2px solid #e6b000;
+  color: #111;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #e6b000;
+}
+
+.error {
+  color: #b00020;
+  text-align: center;
+}

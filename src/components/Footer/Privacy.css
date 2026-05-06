@@ -1,0 +1,184 @@
+:root{
+  --hero-bg: #eef8fb;       /* pale blue */
+  --hero-title: #073b4c;    /* deep teal */
+  --hero-sub: #f2c300;      /* yellow */
+  --container-max: 1400px;
+}
+
+/* ---------- HERO ---------- */
+.privacy-hero {
+  background: var(--hero-bg);
+  position: relative;
+  overflow: visible;
+  padding-top: 26px;           /* keep header visible */
+  padding-bottom: 0;
+}
+
+/* inner grid: left text + large right image */
+.privacy-hero-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 44px 28px 0;        /* top spacing to match screenshot */
+  display: grid;
+  grid-template-columns: 1fr 760px; /* wide right column for big image */
+  gap: 18px;
+  align-items: start;
+}
+
+/* left column layout */
+.privacy-hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 28px;         /* pushes text away from edge */
+}
+
+/* big title like screenshot */
+.privacy-title {
+  margin: 0 0 10px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 800;
+  color: var(--hero-title);
+  font-size: 68px;            /* large */
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+/* subtitle in yellow */
+.privacy-sub {
+  margin: 0;
+  color: var(--hero-sub);
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* ---------- IMAGE (positioning to overlap white curve) ---------- */
+.privacy-hero-media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  margin-right: -70px;        /* pull image outside container to right */
+}
+
+/* large image — overlaps the white curve below */
+.privacy-hero-image {
+  width: 760px;               /* big like screenshot */
+  max-width: none;
+  display: block;
+  transform: translateY(24px); /* drop into the white curve a bit */
+  z-index: 30;                /* above wave but below any header */
+  box-shadow: 0 28px 60px rgba(12,25,30,0.12);
+  border-radius: 6px;
+}
+
+/* ---------- BACKGROUND FLOATING BLUE WAVE (behind white curve) ---------- */
+.wave-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 220px;
+  pointer-events: none;
+  z-index: 8;
+}
+.wave-bg-path {
+  fill: #e6f5f9;              /* slightly darker blue for contrast */
+  transform-origin: center;
+  will-change: transform;
+  animation: bgFloat 8s ease-in-out infinite;
+}
+@keyframes bgFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* ---------- WHITE CURVED EDGE (top of content) ---------- */
+.privacy-hero-wave {
+  position: relative;
+  width: 100%;
+  height: 120px;             /* tall enough to match screenshot */
+  z-index: 20;               /* sits above wave and image shadow to create the edge */
+  margin-top: -6px;
+}
+
+/* ---------- dashed decorative arcs ---------- */
+.privacy-hero::before,
+.privacy-hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed rgba(7,59,76,0.06);
+  pointer-events: none;
+  z-index: 10;
+}
+.privacy-hero::before {
+  width: 980px;
+  height: 980px;
+  left: -340px;
+  top: -320px;
+  transform: rotate(-10deg);
+}
+.privacy-hero::after {
+  width: 980px;
+  height: 980px;
+  right: -360px;
+  top: -420px;
+  transform: rotate(12deg);
+}
+
+/* ---------- CONTENT (starts immediately below white curve) ---------- */
+.privacy-content {
+  max-width: 920px;
+  margin: -20px auto 80px;   /* negative top margin pulls content up under the white curve */
+  padding: 48px 28px 60px;   /* comfortable content padding */
+  color: var(--hero-title);
+  font-size: 18px;
+  line-height: 1.8;
+  background: white;         /* ensures text sits on white area */
+  position: relative;
+  z-index: 5;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+/* headings in content */
+.privacy-content h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: var(--hero-title);
+}
+.privacy-content h3 {
+  font-size: 18px;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+.privacy-content p { margin-bottom: 16px; }
+.privacy-content ul { padding-left: 36px; margin-bottom: 16px; }
+.privacy-content ul li { margin-bottom: 8px; }
+
+/* contact link style */
+.privacy-email { color: var(--hero-sub); font-weight: 700; text-decoration: none; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1200px) {
+  .privacy-hero-inner { grid-template-columns: 1fr 560px; padding: 36px 20px 0; }
+  .privacy-hero-image { width: 560px; transform: translateY(18px); margin-right: -40px; }
+  .privacy-title { font-size: 56px; }
+}
+@media (max-width: 880px) {
+  .privacy-hero-inner { grid-template-columns: 1fr; padding: 24px 18px 0; text-align: center; }
+  .privacy-hero-left { align-items: center; padding-left: 0; }
+  .privacy-hero-media { order: 1; margin-right: 0; }
+  .privacy-hero-image { width: 320px; transform: translateY(0); box-shadow: 0 14px 30px rgba(12,25,30,0.08); }
+  .privacy-title { font-size: 36px; }
+  .privacy-content { margin-top: 10px; padding: 28px 18px 50px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave-bg-path { animation: none; }
+}

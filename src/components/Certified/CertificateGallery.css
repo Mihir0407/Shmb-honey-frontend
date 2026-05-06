@@ -1,0 +1,166 @@
+/* CertificateGallery.css */
+
+/* variables */
+:root {
+  --container-max: 1200px;
+  --panel-gap: 12px;
+  --thumb-aspect: 75%; /* matches Elementor aspect ratio */
+}
+
+/* container helper */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* section base */
+.cert-section {
+  padding: 28px 0 40px;
+  background: transparent;
+}
+
+/* grid layout: 4 cols desktop, 2 tablet, 1 mobile (adjust to match WP: 4/2/1) */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+/* thumbnail tile as button (background-image) */
+.cert-item {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background-color: #f6f6f6;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: relative;
+  aspect-ratio: 3 / 4; /* makes tiles behave like portrait thumbnails; fallback below */
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* fallback for older browsers: keep aspect ratio using padding hack */
+.cert-item::before {
+  content: "";
+  display: block;
+  padding-top: var(--thumb-aspect); /* percentage */
+}
+
+/* overlay to mimic elementor overlay effect */
+.cert-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.05));
+  opacity: 1;
+  transition: transform 300ms ease, opacity 250ms ease;
+}
+
+/* hover */
+.cert-item:hover .cert-overlay {
+  transform: scale(1.02);
+  opacity: 0.6;
+}
+
+/* LIGHTBOX */
+.cert-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(6,10,14,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* inner image container */
+.lb-inner {
+  max-width: 90%;
+  max-height: 88%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.lb-inner img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  background: #fff;
+}
+
+/* caption */
+.lb-caption {
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* close / prev / next buttons (simple) */
+.lb-close,
+.lb-prev,
+.lb-next {
+  position: fixed;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 34px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 10000;
+  line-height: 1;
+}
+
+/* positions */
+.lb-close { right: 18px; top: 18px; font-size: 36px; }
+.lb-prev { left: 18px; top: 50%; transform: translateY(-50%); font-size: 42px; }
+.lb-next { right: 18px; top: 50%; transform: translateY(-50%); font-size: 42px; }
+
+/* small screens: 2 columns tablet, 1 column mobile */
+@media (max-width: 992px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cert-item::before { padding-top: 76%; }
+}
+
+@media (max-width: 600px) {
+  .cert-grid { grid-template-columns: 1fr; gap: 12px; }
+  .lb-prev, .lb-next { display: none; } /* keep simple on mobile */
+  .lb-close { right: 12px; top: 12px; }
+}
+/* =========================
+   FIXED ORIENTATION CONTROL
+   First 4 = Vertical
+   Last 3 = Horizontal
+========================= */
+
+/* Default = vertical certificates */
+.cert-item {
+  aspect-ratio: 3 / 4;
+}
+
+/* Last 3 certificates → horizontal */
+.cert-item:nth-child(5),
+.cert-item:nth-child(6),
+.cert-item:nth-child(7) {
+  aspect-ratio: 4 / 3;
+}
+
+/* Make horizontal ones span wider on desktop */
+@media (min-width: 993px) {
+  .cert-item:nth-child(5),
+  .cert-item:nth-child(6),
+  .cert-item:nth-child(7) {
+    grid-column: span 2;
+  }
+}

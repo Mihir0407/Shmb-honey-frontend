@@ -1,0 +1,145 @@
+/* BASE STYLES */
+:root {
+  --container-max: 1200px;
+  --accent-yellow: #f2c300;
+  --title-brown: #5a2f12;
+  --text-color: #222;
+}
+
+/* Container */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section wrapper */
+.about-story-section {
+  background: #fff;
+  padding: 40px 0 80px;
+}
+
+/* HEADER */
+.story-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.story-label {
+  color: var(--accent-yellow);
+  font-weight: 800;
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.story-main-title {
+  color: var(--title-brown);
+  font-size: 54px;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* TWO COLUMN LAYOUT */
+.story-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* IMAGE COLUMN */
+.story-image-col {
+  display: flex;
+  justify-content: center;
+}
+
+.story-image-wrap {
+  width: 100%;
+  max-width: 550px;
+  margin-top: 40px;
+
+  /* FIX: strong cropping height */
+  height: 380px;      /* <<< PERFECT MATCH TO REFERENCE  */
+  overflow: hidden;
+
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.story-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ensures cropping */
+  object-position: center;
+  display: block;
+}
+
+/* TEXT COLUMN */
+.story-text-col {
+  padding-left: 24px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+.story-year {
+  color: var(--accent-yellow);
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.story-subtitle {
+  font-size: 28px;
+  font-family: Georgia, serif;
+  color: var(--title-brown);
+  margin: 6px 0 16px;
+}
+
+.story-text {
+  font-size: 18px;
+  line-height: 1.75;
+  font-family: Georgia, serif;
+  color: var(--text-color);
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .story-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .story-text-col {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .story-main-title {
+    font-size: 40px;
+  }
+
+  .story-image-wrap {
+    height: 300px;  /* reduce height on tablet */
+  }
+
+  .story-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .story-main-title {
+    font-size: 30px;
+  }
+
+  .story-image-wrap {
+    height: 240px; /* mobile perfect crop */
+  }
+
+  .story-text {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+}

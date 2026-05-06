@@ -1,0 +1,55 @@
+/* FULL SCREEN WHITE SPLASH BACKDROP */
+.splash-backdrop {
+  position: fixed;
+  inset: 0;
+  background: #ffffff; /* white background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;       /* very top */
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+/* When hiding, fade out */
+.splash-hide {
+  opacity: 0;
+}
+
+/* LOGO CONTAINER */
+.splash-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: splashPop 0.4s ease forwards;
+}
+
+/* Logo image */
+.splash-logo {
+  max-width: 140px;
+  max-height: 140px;
+  object-fit: contain;
+}
+
+/* Slight pop animation for logo */
+@keyframes splashPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Disable animation for reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  .splash-panel {
+    animation: none;
+  }
+}

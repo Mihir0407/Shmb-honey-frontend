@@ -1,0 +1,33 @@
+.my-orders {
+  margin-top: 40px;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.orders-table th {
+  background: #f9fafb;
+}
+
+.no-orders {
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+.paid {
+  color: green;
+}
+
+.failed {
+  color: red;
+}

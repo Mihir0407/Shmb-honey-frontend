@@ -1,0 +1,112 @@
+/* Cart sidebar overlay */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.0);
+  pointer-events: none;
+  transition: background 260ms ease;
+  z-index: 1200;
+}
+.cart-overlay-show {
+  background: rgba(0,0,0,0.45);
+  pointer-events: auto;
+}
+
+/* Sidebar panel */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 360px;
+  max-width: 92vw;
+  background: #fff;
+  box-shadow: -12px 0 40px rgba(0,0,0,0.12);
+  transform: translateX(110%);
+  transition: transform 320ms cubic-bezier(.2,.8,.2,1);
+  z-index: 1250;
+  display: flex;
+  flex-direction: column;
+}
+
+/* open state */
+.cart-open { transform: translateX(0%); }
+
+/* header */
+.cart-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 16px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.cart-header h3 { margin:0; color:#4b2502; }
+
+/* close button */
+.cart-close {
+  background:none;
+  border:0;
+  font-size:20px;
+  cursor:pointer;
+  color:#4b2502;
+}
+
+/* body */
+.cart-body {
+  flex:1;
+  overflow:auto;
+  padding: 12px 12px 20px;
+}
+.cart-empty {
+  padding: 24px;
+  color:#666;
+  text-align:center;
+}
+
+/* cart item row */
+.cart-item {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:10px 6px;
+  border-bottom: 1px solid #f6f6f6;
+}
+.cart-item img {
+  width:72px;
+  height:72px;
+  object-fit:cover;
+  border-radius:8px;
+  border:1px solid #f0f0f0;
+}
+.cart-item-meta { flex:1; }
+.cart-item-title { font-weight:700; color:#222; margin-bottom:6px; }
+.cart-item-qty, .cart-item-price { color:#666; font-size:14px; }
+
+/* remove button */
+.cart-item-remove {
+  background: transparent;
+  border: none;
+  color: #e55;
+  cursor:pointer;
+  font-size:13px;
+}
+
+/* footer */
+.cart-footer {
+  padding: 12px;
+  border-top: 1px solid #f2f2f2;
+}
+.cart-total { margin-bottom: 10px; font-size:16px; color:#222; display:flex; justify-content:space-between; align-items:center; }
+
+/* actions */
+.cart-actions { display:flex; gap:10px; }
+.btn-cta { background:#f2c300; color:#4b2502; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
+.btn-outline { background:transparent; border:1px solid #ddd; padding:8px 12px; border-radius:8px; cursor:pointer; }
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+  .cart-sidebar { width: 92vw; }
+  .cart-item img { width:60px; height:60px; }
+  .cart-header { padding:12px; }
+  .cart-footer { padding:10px; }
+}

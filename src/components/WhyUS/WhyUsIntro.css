@@ -1,0 +1,93 @@
+/* WhyUsIntro.css - matches the Elementor design and colors */
+
+/* theme variables (adjust if you use global tokens) */
+:root {
+  --container-max: 1200px;
+  --accent-yellow: #f2c300;    /* yellow */
+  --headline-teal: #0f4b51;    /* deep teal/dark used for main heading */
+  --text-muted: #11404a;       /* paragraph color (teal-ish dark) */
+  --serif: Georgia, "Times New Roman", serif;
+}
+
+/* container helper (same as other components) */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* section base */
+.whyus-intro-section {
+  background: #ffffff; /* keeps same white background */
+  padding: 56px 0 56px;
+}
+
+/* center block */
+.whyus-intro-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* content column */
+.whyus-intro-content {
+  max-width: 980px;
+  width: 100%;
+  text-align: center;
+  padding: 0 12px;
+}
+
+/* small label */
+.whyus-small-label {
+  color: var(--accent-yellow);
+  font-weight: 800;
+  font-size: 28px;
+  margin: 0 0 10px;
+  letter-spacing: 0.2px;
+}
+
+/* main headline (two-line serif) */
+.whyus-main-title {
+  color: var(--headline-teal);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+  margin: 6px 0 22px;
+  letter-spacing: -0.5px;
+}
+
+/* paragraph wrapper and text */
+.whyus-paragraph-wrap {
+  margin-top: 6px;
+}
+.whyus-paragraph {
+  color: var(--text-muted);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.85;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 12px;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 992px) {
+  .whyus-main-title {
+    font-size: 44px;
+  }
+  .whyus-small-label { font-size: 22px; }
+  .whyus-paragraph { font-size: 16px; line-height: 1.8; }
+  .whyus-intro-section { padding: 40px 0; }
+}
+
+@media (max-width: 600px) {
+  .whyus-main-title {
+    font-size: 32px;
+    line-height: 1.05;
+  }
+  .whyus-small-label { font-size: 18px; }
+  .whyus-paragraph { font-size: 15px; line-height: 1.6; padding: 0 8px; }
+  .whyus-intro-content { padding: 0 6px; }
+}

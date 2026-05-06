@@ -1,0 +1,102 @@
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.admin-sidebar {
+  width: 240px;
+  background: #0f172a;
+  color: white;
+  padding: 24px;
+}
+
+.admin-logo {
+  margin-bottom: 32px;
+}
+
+.admin-sidebar nav a {
+  display: block;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #cbd5f5;
+}
+
+.admin-sidebar nav a.active,
+.admin-sidebar nav a:hover {
+  background: #1e293b;
+  color: white;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 32px;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+}
+
+/* Tables */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 20px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.status.paid {
+  color: green;
+}
+
+.status.failed {
+  color: red;
+}
+
+button.danger {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.customer-details {
+  max-width: 280px;
+  font-size: 0.9rem;
+}
+
+.customer-details .address {
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.status.paid {
+  color: green;
+  font-weight: 600;
+}
+
+.status.pending {
+  color: orange;
+}
