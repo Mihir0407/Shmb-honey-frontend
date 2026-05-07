@@ -26,7 +26,7 @@ export default function HomeHero() {
         {/* RIGHT IMAGE SLIDER */}
         <div className="hero-right">
           <div className="hero-slider">
-            <img src="/images/can.png" className="slide slide-1" />
+            <img src="/images/Can.png" className="slide slide-1" />
             <img src="/images/tvasta.png" className="slide slide-2" />
             <img src="/images/gayatari.png" className="slide slide-3" />
           </div>
