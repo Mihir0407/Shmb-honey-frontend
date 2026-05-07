@@ -39,7 +39,7 @@ export default function HeroStory() {
         <div className="hs-right">
           <div className="hs-image-wrap">
             <img
-              src="/images/founder.png"
+              src="/images/Founder.png"
               alt="Founder - Shri Hari Madhur Bhandar"
               className="hs-image"
             />
