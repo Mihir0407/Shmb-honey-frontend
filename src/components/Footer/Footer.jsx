@@ -32,7 +32,7 @@ export default function Footer() {
         {/* CENTER BLOCK */}
         <div className="footer-center">
           <div className="footer-logo-wrap">
-            <img src="/images/Footer_logo.png" alt="SHRI HARI MADHUR BHANDAR" className="footer-logo" />
+            <img src="/images/footer_logo.png" alt="SHRI HARI MADHUR BHANDAR" className="footer-logo" />
           </div>
 
           <h3 className="footer-cta">Are you a honey lover?</h3>
