@@ -15,7 +15,14 @@ export default function ProductCard({ product }) {
   const isContactOnly = product.category === "B2B";
 
   return (
-    <Link to={`/product/${product.slug}`} className="product-link">
+    <Link
+  to={
+    isContactOnly
+      ? "/contact"
+      : `/product/${product.slug}`
+  }
+  className="product-link"
+>
       <div className="product-card">
         <img src={product.image} alt={product.title} />
 
