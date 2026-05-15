@@ -465,3 +465,26 @@
     font-size: 32px;
   }
 }
+/* =========================
+   IMAGE ZOOM EFFECT
+========================= */
+
+.pd-image-wrap {
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.pd-image-wrap img {
+  transition: transform 0.4s ease;
+}
+
+.pd-image-wrap:hover img {
+  transform: scale(1.5);
+}
+.pd-image-wrap img {
+  transition: transform 0.4s ease;
+}
+
+.pd-image-wrap:hover img {
+  transform: scale(1.5);
+}
