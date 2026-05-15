@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { PRODUCTS, CATEGORIES } from "../Shop/product";
 import api from "../../api";
@@ -7,6 +8,9 @@ import "./Shop.css";
 export default function Shop() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [products, setProducts] = useState([]); // ✅ NEW (merged products)
+
+    const [searchParams] = useSearchParams();
+  const categoryFromURL = searchParams.get("category");
 
   // ✅ FETCH STOCK + MERGE WITH FRONTEND PRODUCTS
   useEffect(() => {
@@ -26,6 +30,22 @@ export default function Shop() {
         setProducts(PRODUCTS.map(p => ({ ...p, inStock: true })));
       });
   }, []);
+
+
+  useEffect(() => {
+  if (categoryFromURL) {
+    const matchedCategory = CATEGORIES.find(
+      cat =>
+        cat.toLowerCase().replace(/\s+/g, "-") === categoryFromURL
+    );
+
+    if (matchedCategory) {
+      setActiveCategory(matchedCategory);
+    }
+  } else {
+    setActiveCategory("All");
+  }
+}, [categoryFromURL]);
 
   // ✅ EXISTING FILTER LOGIC (UNCHANGED)
   const filteredProducts =
