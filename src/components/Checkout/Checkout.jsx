@@ -106,24 +106,27 @@ export default function Checkout() {
     }
 
     try {
-      const res = await fetch("https://shmb-honey-backend.onrender.com/api/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const res = await fetch(
+        "https://shmb-honey-backend.onrender.com/api/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            items: cart.map((item) => ({
+              productId: item.id,
+              title: item.title,
+              price: item.price,
+              qty: item.qty,
+            })),
+            billing,
+            orderNotes: billing.notes || "",
+            amount: totalPrice,
+          }),
         },
-        body: JSON.stringify({
-          items: cart.map((item) => ({
-            productId: item.id,
-            title: item.title,
-            price: item.price,
-            qty: item.qty,
-          })),
-          billing,
-          orderNotes: billing.notes || "",
-          amount: totalPrice,
-        }),
-      });
+      );
 
       const data = await res.json();
       if (!data.razorpayOrderId) {
@@ -143,14 +146,17 @@ export default function Checkout() {
           email: billing.email,
         },
         handler: async function (response) {
-          await fetch("https://shmb-honey-backend.onrender.com/api/payment/verify", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
+          await fetch(
+            "https://shmb-honey-backend.onrender.com/api/payment/verify",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify(response),
             },
-            body: JSON.stringify(response),
-          });
+          );
 
           clearCart();
           window.location.href = "/order-success";
@@ -176,7 +182,7 @@ export default function Checkout() {
               <button onClick={() => (window.location.href = "/login")}>
                 Login
               </button>
-              <button onClick={() => (window.location.href = "/register")}>
+              <button onClick={() => (window.location.href = "/signup")}>
                 Register
               </button>
               <button onClick={() => setShowAuthPopup(false)}>Cancel</button>
@@ -189,15 +195,15 @@ export default function Checkout() {
         {/* LEFT COLUMN (UNCHANGED) */}
         <div className="checkout-left">
           <div className="checkout-box notice">
-  Returning customer?
-  <span
-    className="link"
-    onClick={() => (window.location.href = "/signup")}
-  >
-    {" "}
-    Click here to signup
-  </span>
-</div>
+            Returning customer?
+            <span
+              className="link"
+              onClick={() => (window.location.href = "/signup")}
+            >
+              {" "}
+              Click here to signup
+            </span>
+          </div>
 
           <div className="checkout-box">
             <h3>Billing Details</h3>
