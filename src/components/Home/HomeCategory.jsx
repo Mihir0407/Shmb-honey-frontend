@@ -14,7 +14,7 @@ const items = [
     id: "cat2",
     title: "Tvashta Honey",
     img: "/images/cat2.png",
-    href: "/shop?category=tvashta-honey",
+    href: "https://shmbhoney.com/shop?category=tvashta-honey",
   },
   {
     id: "cat1",
