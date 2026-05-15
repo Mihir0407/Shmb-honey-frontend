@@ -9,7 +9,7 @@ export const PRODUCTS = [
     id: 1,
     title: "Tvashta Shilajit – 500gm",
     image: "/images/shop/shilajit.png",
-    price: 799,
+    price: 1,
     oldPrice: 999,
     category: "Tvashta Honey",
     slug: "tvashta-shilajit-500gm",
