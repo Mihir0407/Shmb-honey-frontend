@@ -189,17 +189,15 @@ export default function Checkout() {
         {/* LEFT COLUMN (UNCHANGED) */}
         <div className="checkout-left">
           <div className="checkout-box notice">
-            Returning customer?
-            <span className="link" onClick={() => setShowLogin(!showLogin)}>
-              {" "}
-              Click here to login
-            </span>
-            {showLogin && (
-              <div className="login-placeholder">
-                Login form will be added here
-              </div>
-            )}
-          </div>
+  Returning customer?
+  <span
+    className="link"
+    onClick={() => (window.location.href = "/signup")}
+  >
+    {" "}
+    Click here to signup
+  </span>
+</div>
 
           <div className="checkout-box">
             <h3>Billing Details</h3>
