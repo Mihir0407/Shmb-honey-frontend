@@ -51,7 +51,10 @@ export default function ProductCard({ product }) {
             onClick={(e) => {
               e.preventDefault();
               if (!product.inStock) return;
-              addToCart(product, 1);
+              addToCart(
+  product,
+  requiresPackOf10(product) ? 10 : 1
+);
             }}
           >
             {product.inStock ? "Add to cart" : "Out of Stock"}

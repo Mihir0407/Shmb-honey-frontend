@@ -321,6 +321,7 @@ export const PRODUCTS = [
     price: 30,
     category: "Shree Gayatri Shakti",
     slug: "shri-gayatri-shakti-25gm",
+    bulkQty: 10,
     specs: {
       flavour: "Herbal",
       itemWeight: "25 gm",
@@ -337,6 +338,7 @@ export const PRODUCTS = [
     price: 45,
     category: "Shree Gayatri Shakti",
     slug: "shri-gayatri-shakti-50gm",
+    bulkQty: 10,
     specs: {
       flavour: "Herbal",
       itemWeight: "50 gm",
@@ -353,6 +355,7 @@ export const PRODUCTS = [
     price: 70,
     category: "Shree Gayatri Shakti",
     slug: "shri-gayatri-shakti-100gm",
+    bulkQty: 10,
     specs: {
       flavour: "Herbal",
       itemWeight: "100 gm",
@@ -369,6 +372,7 @@ export const PRODUCTS = [
     price: 110,
     category: "Shree Gayatri Shakti",
     slug: "shri-gayatri-shakti-200gm",
+    bulkQty: 10,
     specs: {
       flavour: "Herbal",
       itemWeight: "200 gm",
