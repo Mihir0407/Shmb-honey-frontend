@@ -49,8 +49,8 @@ export const PRODUCTS = [
     id: 3,
     title: "Tvashta Dark Forest – 500gm",
     image: "/images/shop/darkforest.png",
-    price: 350,
-    oldPrice: 449,
+    price: 450,
+    oldPrice: 600,
     category: "Tvashta Honey",
     slug: "tvashta-dark-forest-500gm",
     specs: {
