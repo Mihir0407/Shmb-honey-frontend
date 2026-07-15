@@ -35,7 +35,7 @@ export default function Navbar() {
 
   const active = (path) => (location.pathname === path ? "active" : "");
 
-  if (loading) return null; // ✅ avoid flicker
+  // if (loading) return null; // ✅ avoid flicker
 
   return (
     <>
@@ -95,35 +95,38 @@ export default function Navbar() {
               Contact Us
             </Link>
 
-            {/* ✅ AUTH LINKS */}
-            {!user ? (
-              <>
-                <Link to="/login" className={active("/login")}>
-                  Login
-                </Link>
-                <Link to="/signup" className={active("/signup")}>
-                  Sign Up
-                </Link>
-              </>
-            ) : (
-              <>
-                {isAdmin && (
-                  <Link
-                    to="/admin/dashboard"
-                    className={active("/admin/dashboard")}
-                  >
-                    Dashboard
-                  </Link>
-                )}
+            {/* AUTH LINKS */}
+{loading ? (
+  <div className="auth-placeholder"></div>
+) : !user ? (
+  <>
+    <Link to="/login" className={active("/login")}>
+      Login
+    </Link>
 
-                <Link
-                  to="/account-details"
-                  className={active("/account-details")}
-                >
-                  My Account
-                </Link>
-              </>
-            )}
+    <Link to="/signup" className={active("/signup")}>
+      Sign Up
+    </Link>
+  </>
+) : (
+  <>
+    {isAdmin && (
+      <Link
+        to="/admin/dashboard"
+        className={active("/admin/dashboard")}
+      >
+        Dashboard
+      </Link>
+    )}
+
+    <Link
+      to="/account-details"
+      className={active("/account-details")}
+    >
+      My Account
+    </Link>
+  </>
+)}
           </nav>
 
           {/* RIGHT ICONS */}
