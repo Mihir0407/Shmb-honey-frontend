@@ -35,7 +35,7 @@ export default function Navbar() {
 
   const active = (path) => (location.pathname === path ? "active" : "");
 
-  // if (loading) return null; // ✅ avoid flicker
+if (loading) return null; // ✅ avoid flicker
 
   return (
     <>
@@ -95,10 +95,8 @@ export default function Navbar() {
               Contact Us
             </Link>
 
-            {/* AUTH LINKS */}
-{loading ? (
-  <div className="auth-placeholder"></div>
-) : !user ? (
+           {/* ✅ AUTH LINKS */}
+{!user ? (
   <>
     <Link to="/login" className={active("/login")}>
       Login
