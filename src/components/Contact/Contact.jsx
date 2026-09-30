@@ -88,7 +88,7 @@ export default function Contact() {
             <img src="../images/contact.jpg" alt="Contact" />
 
             <div className="contact-info">
-              <p>📞 +91 99898 23496 &nbsp; | &nbsp; +91 94263 49332</p>
+              <p>📞 +91 9998923496  &nbsp; | &nbsp; +91 94263 49332</p>
               <p>📧 support@shriharimadhur.com</p>
               <p>
                 📍 46, Gopinath Industrial Hub, Ambika Tube Mill Compound,
