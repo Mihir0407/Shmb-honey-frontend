@@ -85,25 +85,30 @@ export default function Checkout() {
     if (!billing.email) e.email = "Billing email is required.";
     if (!billing.agree) e.agree = "Please accept terms & conditions.";
     if (!billing.phone) e.phone = "Mobile number is required.";
+    if (!billing.zip) e.zip = "PIN Code is required.";
 
     setErrors(e);
     return Object.keys(e).length === 0;
   };
 
-  const placeOrder = async () => {
-    if (!validate()) return;
+const placeOrder = async () => {
+  const token = localStorage.getItem("token");
 
-    const token = localStorage.getItem("token");
-    if (!token) {
-      setShowAuthPopup(true); // ✅ POPUP INSTEAD OF ALERT
-      return;
-    }
+  if (!token) {
+    setShowAuthPopup(true);
+    return;
+  }
 
-    const loaded = await loadRazorpay();
-    if (!loaded) {
-      alert("Razorpay SDK failed to load");
-      return;
-    }
+  if (!validate()) {
+    return;
+  }
+
+  const loaded = await loadRazorpay();
+
+  if (!loaded) {
+    alert("Razorpay SDK failed to load");
+    return;
+  }
 
     try {
       const res = await fetch(
