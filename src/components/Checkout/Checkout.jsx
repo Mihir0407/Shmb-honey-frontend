@@ -51,6 +51,7 @@ export default function Checkout() {
   const [coupon, setCoupon] = useState("");
 
   const [showAuthPopup, setShowAuthPopup] = useState(false); // ✅ ADDED
+  const [showFormPopup, setShowFormPopup] = useState(false);
 
   const [billing, setBilling] = useState({
     firstName: "",
@@ -100,8 +101,9 @@ const placeOrder = async () => {
   }
 
   if (!validate()) {
-    return;
-  }
+  setShowFormPopup(true);
+  return;
+}
 
   const loaded = await loadRazorpay();
 
@@ -195,6 +197,23 @@ const placeOrder = async () => {
           </div>
         </div>
       )}
+      {showFormPopup && (
+  <div className="auth-popup-overlay">
+    <div className="auth-popup">
+      <h3>Complete Your Details</h3>
+
+      <p>
+        Please fill in all required billing details before placing your order.
+      </p>
+
+      <button
+        onClick={() => setShowFormPopup(false)}
+      >
+        Fill Form
+      </button>
+    </div>
+  </div>
+)}
 
       <div className="checkout-wrapper">
         {/* LEFT COLUMN (UNCHANGED) */}
