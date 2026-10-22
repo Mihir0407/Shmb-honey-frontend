@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { PRODUCTS } from "../Shop/product";
 import "./ProductDetail.css";
 import { useCart } from "../../CartContext";
+import CartSidebar from "../CartSidebar/CartSidebar";
 
 const requiresPackOf10 = (product) => {
   if (product.category !== "Shree Gayatri Shakti") return false;
@@ -35,7 +36,9 @@ export default function ProductDetail() {
 
   const [qty, setQty] = useState(isPack10 ? 10 : 1);
   const [activeTab, setActiveTab] = useState("description");
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const { addToCart } = useCart();
+  
 
   if (!product) return <h2>Product not found</h2>;
 
@@ -90,9 +93,14 @@ export default function ProductDetail() {
               />
 
               {/* ✅ FIXED */}
-              <button onClick={() => addToCart(product, isPack10 ? 10 : qty)}>
-                Add to cart
-              </button>
+              <button
+  onClick={() => {
+    addToCart(product, isPack10 ? 10 : qty);
+    setIsCartOpen(true);
+  }}
+>
+  Add to cart
+</button>
             </div>
 
             <hr />
@@ -170,9 +178,10 @@ export default function ProductDetail() {
 
                 {/* ✅ FIXED */}
                 <button
-                  onClick={() =>
-                    addToCart(item, requiresPackOf10(item) ? 10 : 1)
-                  }
+                  onClick={() => {
+  addToCart(item, requiresPackOf10(item) ? 10 : 1);
+  setIsCartOpen(true);
+}}
                 >
                   Add to cart
                 </button>
@@ -180,6 +189,10 @@ export default function ProductDetail() {
             ))}
         </div>
       </section>
+      <CartSidebar
+  open={isCartOpen}
+  onClose={() => setIsCartOpen(false)}
+/>
     </>
   );
 }
