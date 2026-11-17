@@ -43,15 +43,39 @@ export default function Signup({ onModeChange }) {
         agree: form.agree,
       });
 
-      const { token } = res.data;
+      console.log("REGISTRATION RESPONSE:", res.data);
 
-      await login(token); // ✅ updates navbar
-      navigate("/account-details", { replace: true });
-    } catch (err) {
-      setError(err.response?.data?.message || "Signup failed");
-    } finally {
-      setLoading(false);
-    }
+const { token } = res.data;
+
+if (!token) {
+  throw new Error("Registration successful but token missing");
+}
+
+console.log("Registration successful. Checking authentication...");
+
+await login(token);
+
+console.log("Authentication successful.");
+
+navigate("/account-details", { replace: true });
+    
+} catch (err) {
+  console.error("SIGNUP DEBUG:", err);
+
+  console.log("Error message:", err.message);
+  console.log("Response status:", err.response?.status);
+  console.log("Response data:", err.response?.data);
+  console.log("Request URL:", err.config?.url);
+
+  setError(
+    err.response?.data?.message ||
+    err.message ||
+    "Signup failed"
+  );
+} finally {
+  setLoading(false);
+}
+
   };
 
   return (
