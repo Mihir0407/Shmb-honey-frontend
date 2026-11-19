@@ -488,3 +488,289 @@
 .pd-image-wrap:hover img {
   transform: scale(1.5);
 }
+
+/* =====================================
+   MOBILE RESPONSIVENESS
+   PRODUCT DETAIL PAGE
+===================================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .product-detail.container {
+    margin: 35px auto;
+    padding: 0 24px;
+  }
+
+  .product-detail-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+  }
+
+  .pd-image-wrap {
+    padding: 25px;
+  }
+
+  .pd-image-wrap img {
+    width: 100%;
+    max-height: 420px;
+  }
+
+  .pd-title {
+    font-size: 32px;
+  }
+
+  .pd-info {
+    max-width: 100%;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .product-detail.container {
+    margin: 25px auto;
+    padding: 0 15px;
+  }
+
+  /* Product layout */
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  /* Product image */
+  .pd-image-wrap {
+    width: 100%;
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .pd-image-wrap img {
+    width: 100%;
+    height: 300px;
+    max-height: 300px;
+    object-fit: contain;
+  }
+
+  .zoom-icon {
+    width: 34px;
+    height: 34px;
+    top: 12px;
+    right: 12px;
+  }
+
+  /* Disable hover zoom on touch screens */
+  .pd-image-wrap:hover img {
+    transform: none;
+  }
+
+  /* Product information */
+  .pd-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .pd-title {
+    font-size: 27px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .pd-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  /* Price */
+  .pd-price {
+    margin-bottom: 20px;
+  }
+
+  .pd-price .old {
+    font-size: 16px;
+  }
+
+  .pd-price .new {
+    font-size: 23px;
+  }
+
+  /* Quantity and cart button */
+  .pd-cart-row {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .pd-cart-row input {
+    width: 75px;
+    min-width: 75px;
+    height: 46px;
+  }
+
+  .pd-cart-row button {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+
+  .product-detail hr {
+    margin: 24px 0;
+  }
+
+  .pd-benefits {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* Product tabs */
+  .product-tabs.container {
+    margin: 45px auto;
+    padding: 0 15px;
+  }
+
+  .tabs-header {
+    gap: 5px;
+    margin-bottom: 18px;
+  }
+
+  .tab {
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .tab-content h2 {
+    font-size: 20px;
+  }
+
+  /* Specification table */
+  .spec-table,
+  .spec-table tbody,
+  .spec-table tr,
+  .spec-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .spec-table {
+    border: none;
+  }
+
+  .spec-table tr {
+    margin-bottom: 12px;
+    border: 1px solid #bdbdbd;
+  }
+
+  .spec-table td {
+    padding: 10px 12px;
+    border-right: none;
+    border-bottom: 1px solid #bdbdbd;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .spec-table td:first-child,
+  .spec-table td:last-child {
+    width: 100%;
+  }
+
+  .spec-table td:last-child {
+    border-bottom: none;
+  }
+
+  /* Reviews */
+  .reviews-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .reviews-wrapper h2 {
+    font-size: 23px;
+  }
+
+  /* Related products */
+  .related-products.container {
+    margin: 55px auto;
+    padding: 0 15px;
+  }
+
+  .related-title {
+    font-size: 29px;
+    margin-bottom: 30px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .related-card {
+    padding: 15px 10px 18px;
+    border-radius: 10px;
+  }
+
+  .related-card:nth-child(2) {
+    transform: none;
+  }
+
+  .related-card img {
+    width: 100%;
+    height: 145px;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+
+  .related-card h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    min-height: 42px;
+  }
+
+  .related-card .price {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .related-card button {
+    width: 100%;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+
+  .pd-title {
+    font-size: 24px;
+  }
+
+  .pd-image-wrap img {
+    height: 250px;
+  }
+
+  .related-grid {
+    gap: 10px;
+  }
+
+  .related-card img {
+    height: 120px;
+  }
+
+  .related-card h4 {
+    font-size: 13px;
+  }
+
+  .related-card button {
+    font-size: 11px;
+  }
+}
